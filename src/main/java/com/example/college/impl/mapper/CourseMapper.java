@@ -15,24 +15,24 @@ public abstract class CourseMapper {
     @Autowired
     protected CourseStudentMapper courseStudentMapper;
 
-    @Mapping(target = "id",ignore = true)
-    @Mapping(target = "createdAt",ignore = true)
-    @Mapping(target = "updatedAt",ignore = true)
-    @Mapping(target = "deletedAt",ignore = true)
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "createdAt", ignore = true)
+    @Mapping(target = "updatedAt", ignore = true)
+    @Mapping(target = "deletedAt", ignore = true)
 
     public abstract Course toEntity(CourseDto dto);
-    public  abstract CourseDto toDto(Course course);
+
+    public abstract CourseDto toDto(Course course);
 
 
-    @Mapping(target = "courseStudents",expression = "java(course.getCourseStudents().stream().map(this.courseStudentMapper::toDto).toList())")
-    public  abstract CourseDto toDtoWithCoursStudent(Course course);
-
+    @Mapping(target = "courseStudents", expression = "java(course.getCourseStudents().stream().map(this.courseStudentMapper::toDto).toList())")
+    public abstract CourseDto toDtoWithCoursStudent(Course course);
 
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    @Mapping(target = "createdAt",ignore = true)
-    @Mapping(target = "updatedAt",ignore = true)
-    @Mapping(target = "deletedAt",ignore = true)
+    @Mapping(target = "createdAt", ignore = true)
+    @Mapping(target = "updatedAt", ignore = true)
+    @Mapping(target = "deletedAt", ignore = true)
 
     public abstract void toUpdate(@MappingTarget Course course, CourseDto dto);
 }
