@@ -20,5 +20,6 @@ public abstract class CourseStudentMapper {
     @Mapping(target = "createdAt",ignore = true)
     @Mapping(target = "updatedAt",ignore = true)
     @Mapping(target = "deletedAt",ignore = true)
+
     public abstract void toUpdate(@MappingTarget CourseStudent courseStudent, CourseStudentDto dto) ;
 }
