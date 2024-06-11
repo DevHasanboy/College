@@ -21,7 +21,11 @@ public abstract class CourseStudentMapper {
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     @Mapping(target = "createdAt",ignore = true)
+
     @Mapping(target = "updatedAt",ignore = true)
+
     @Mapping(target = "deletedAt",ignore = true)
+
+
     public abstract void toUpdate(@MappingTarget CourseStudent courseStudent, CourseStudentDto dto) ;
 }
