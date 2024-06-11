@@ -10,7 +10,10 @@ public abstract class CourseStudentMapper {
 
     @Mapping(target = "id",ignore = true)
     @Mapping(target = "createdAt",ignore = true)
+
+
     @Mapping(target = "updatedAt",ignore = true)
+
     @Mapping(target = "deletedAt",ignore = true)
     public abstract CourseStudent toEntity(CourseStudentDto dto);
 
